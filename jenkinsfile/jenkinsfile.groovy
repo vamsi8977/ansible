@@ -29,7 +29,7 @@ pipeline {
       steps {
         echo 'Checking out projects from Bitbucket....'
         dir('epa') {
-          git branch: 'qa', url: 'ssh://git@bitbucket.us.comerica.net:7999/epa/epa-infra.git'
+          git branch: 'qa', url: 'git@github.com:vamsi8977/ansible.git'
         }
       }
     }
