@@ -12,7 +12,7 @@ pipeline {
     )
     choice(
       name: 'ansiblePlaybook',
-      choices: "playbooks/deployment-manager/deploy-epa-code.yml\nplaybooks/deployment-manager/deploy-epa-scripts.yml\nplaybooks/deployment-manager/download-package.yml\nplaybooks/deployment-manager/run-jacl.yml",
+      choices: "playbooks/deployment-manager/validate.yml",
       description: 'Choose Ansible playbook to run'
     )
     choice(
@@ -39,7 +39,7 @@ pipeline {
           echo 'Configuring instances with Ansible....'
           sh """
           cd epa/ansible;
-          ansible-playbook -i inventories/${params.inventoryName} ${params.ansiblePlaybook} --extra-vars "epa_version=${Version}" ${params.ansibleVerbosity}
+          ansible-playbook -i inventories/${params.inventoryName} ${params.ansiblePlaybook} --extra-vars "version=${Version}" ${params.ansibleVerbosity}
           """
         }
       }
