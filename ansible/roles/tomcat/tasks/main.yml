@@ -1,0 +1,4 @@
+---
+- name: run a command
+  shell: sh test.sh
+...

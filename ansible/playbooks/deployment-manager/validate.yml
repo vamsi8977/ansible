@@ -1,7 +1,4 @@
 - hosts: app-server
-gather_facts: no
-tasks:
-
-  # get information current user and domain
-  - name: get information about user
-  shell whoami
+  gather_facts: no
+  roles:
+    - tomcat
